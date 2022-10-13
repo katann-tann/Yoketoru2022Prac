@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CallChengeScene : MonoBehaviour
 {
-    ToNextScene toNextScene;
+    public ToNextScene toNextScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,7 @@ public class CallChengeScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetButtonDown("Next"))
+       if(Input.GetButtonUp("Next"))
         {
             toNextScene.ChangeScene();
         }

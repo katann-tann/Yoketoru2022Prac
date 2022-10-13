@@ -1,4 +1,4 @@
-#define DEBUG_KEY
+//#define DEBUG_KEY
 
 using System.Collections;
 using System.Collections.Generic;
@@ -19,11 +19,11 @@ public class GameManager : MonoBehaviour
 #if DEBUG_KEY
         if (Input.GetKeyDown(KeyCode.O))
         {
-            SceneManager.LoadScene("Gameover");
+            SceneManager.LoadScene("Gameover", LoadSceneMode.Additive);
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            SceneManager.LoadScene("Clear");
+            SceneManager.LoadScene("Clear",LoadSceneMode.Additive);
         }
 #endif
     }

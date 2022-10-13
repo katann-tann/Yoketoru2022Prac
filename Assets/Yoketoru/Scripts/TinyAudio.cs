@@ -15,6 +15,15 @@ public class TinyAudio : MonoBehaviour
         Miss,
         Start,
     }
+    public enum BGM
+    {
+        Gameover,
+        Clear
+    }
+
+    [Tooltip("BGM音源"), SerializeField]
+    AudioClip[] bgmList;
+
     [Tooltip("効果音のAudio Clipを、SEの列挙子と同じ順番で設定してください。"), SerializeField]
     AudioClip[] seList;
     AudioSource audioSource;
@@ -30,5 +39,15 @@ public class TinyAudio : MonoBehaviour
     public static void PlaySE(SE se)
     {
         Instance.audioSource.PlayOneShot(Instance.seList[(int)se]);
+    }
+    public static void StopBGM()
+    {
+        Instance.audioSource.Stop();
+    }
+    public static void PlayBGM(BGM bgm)
+    {
+        StopBGM();
+        Instance.audioSource.clip = Instance.bgmList[(int)bgm];
+        Instance.audioSource.Play();
     }
 }
