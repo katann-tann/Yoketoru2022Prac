@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -46,5 +47,15 @@ public class Player : MonoBehaviour
             rb.velocity = v * to.normalized;
         }
         //transform.position = wp;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene("Gameover",LoadSceneMode.Additive);
+            Time.timeScale = 0;
+        }
+        Debug.Log(collision.collider.tag);   
     }
 }
