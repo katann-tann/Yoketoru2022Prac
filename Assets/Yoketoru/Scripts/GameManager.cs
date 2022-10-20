@@ -4,10 +4,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    TextMeshProUGUI scoreText = default;
+    [SerializeField]
+
+
+    static int score;
+    static float time;
+    static float StartTime => 10;
+
+    private void Awake()
+    {
+        score = 0;
+        time = StartTime;
+
+
+    }
+
     void Start()
     {
         TinyAudio.PlaySE(TinyAudio.SE.Start);
@@ -25,6 +42,18 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Clear",LoadSceneMode.Additive);
         }
+        else if(Input.GetKeyDown(KeyCode.P))
+        {
+            score += 123;
+            UpdateScoreText();
+        }
 #endif
+    }
+     void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = $"{score:000000}";
+        }
     }
 }
