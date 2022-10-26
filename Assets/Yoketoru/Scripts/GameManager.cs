@@ -19,12 +19,18 @@ public class GameManager : MonoBehaviour
     static int score;
     static float time;
     static float StartTime => 10;
+    static bool clear;
+    static bool gameover;
 
     private void Awake()
     {
         Instance = this;
         ClearScore();
+        Item.ClearCount();
         time = StartTime;
+        clear = false;
+        gameover = false;
+
 
 
     }
@@ -40,11 +46,11 @@ public class GameManager : MonoBehaviour
 #if DEBUG_KEY
         if (Input.GetKeyDown(KeyCode.O))
         {
-            SceneManager.LoadScene("Gameover", LoadSceneMode.Additive);
+            ToClear();
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            SceneManager.LoadScene("Clear",LoadSceneMode.Additive);
+            ToGameover();
         }
         else if(Input.GetKeyDown(KeyCode.P))
         {
@@ -91,5 +97,23 @@ public class GameManager : MonoBehaviour
         {
             Instance.UpdateScoreText();
         }
+    }
+
+    public static void ToClear()
+    {
+        if (clear || gameover) return;
+
+        clear = true;
+        ToClear();
+        Time.timeScale = 0;
+    }
+
+    public static void ToGameover()
+    {
+        if (clear || gameover) return;
+
+        gameover = true;
+        SceneManager.LoadScene("Gameover", LoadSceneMode.Additive);
+        Time.timeScale = 0;
     }
 }

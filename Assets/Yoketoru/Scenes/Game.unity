@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4263914262026381117, guid: 25b288a1a531b284a87c97b3f283c9a6, type: 3}
-  spawnCount: 5
+  spawnCount: 11
 --- !u!114 &1244330663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6986855696988024479, guid: 91c93a35dd85eae41b2907773b0eee9b, type: 3}
-  spawnCount: 10
+  spawnCount: 11
 --- !u!4 &1376201809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9dd312f84128d1342a54c8e68ca8bd41, type: 3}
